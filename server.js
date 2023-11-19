@@ -1,5 +1,5 @@
 import express from "express";
-import bankRouter from "./routes/bank-routes.js"
+import budgetRouter from "./routes/budget-routes.js"
 import bodyParser from 'body-parser';
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -18,7 +18,7 @@ app.use(express.json());
 app.get('/',(req,res)=>{
     res.send('hello')
 })
-app.use('/api/v1/bank', bankRouter);
+app.use('/api/v1/budget', budgetRouter);
 
 app.listen(PORT,()=>{
     console.log(`app listening on port ${PORT}`);
