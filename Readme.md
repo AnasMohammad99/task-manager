@@ -1,4 +1,4 @@
-# Technecians 
+# task-manager 
 ## API Reference
 
 #### root uri
