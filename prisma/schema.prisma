@@ -6,15 +6,32 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-enum Category {
-  INCOMES
-  EXPENSES
-}
-model Budget {
-  key                  Int             @id @default(autoincrement())
-  amount              Int
-  category            Category             
-  description         String           
-  date                DateTime
+enum completionStatus {
+  FINISHED  
+  WORKING
 }
 
+model Users {
+  id                      Int         @id @default(autoincrement())
+  username                String
+  email                   String      @unique
+  password                String
+  emailVerifiaction       String?
+  tokens                  tokens[]
+  tasks                   tasks[]
+}
+model tokens {
+  id                      Int         @id @default(autoincrement())
+  userId                  Int         
+  expiresAt               DateTime
+  user                    Users       @relation(fields: [userId], references: [id])
+}
+model tasks {
+  id                      Int         @id @default(autoincrement())
+  userId                  Int         
+  title                   String
+  description             String
+  date                    DateTime
+  status                  completionStatus  @default(WORKING)
+  assigned_user           Users       @relation(fields: [userId], references: [id])
+}
