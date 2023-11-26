@@ -3,7 +3,7 @@
 
 #### root uri
 ```http
- https://technicans.mooo.com:3000
+ http://localhost:5000
 ```
 #### Register new user
 ```http
