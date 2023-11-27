@@ -85,6 +85,34 @@
 | Body Parameter | Type     | 
 | :------------- | :------- | 
 | `message`      | `string` | 
+#### verify user email
+```http
+  DELETE /api/v1/user/verify-email
+```
+| Header Parameter | Type     | Description                |
+| :--------------- | :------- | :------------------------- |
+| `email`          | `string` | **Required** |
+----------------------------------------------------------------
+### Response 
+| Body Parameter | Type     | 
+| :------------- | :------- | 
+| `message`      | `string` | 
+
+#### reset user password
+```http
+  DELETE /api/v1/user/reset-password/{token}
+```
+| Header Parameter | Type     | Description                |
+| :--------------- | :------- | :------------------------- |
+| `email`          | `string` | **Required** |
+| `password`       | `string` | **Required** |
+----------------------------------------------------------------
+### Response 
+| Body Parameter | Type     | 
+| :------------- | :------- | 
+| `message`      | `string` | 
+| `email`        | `string` |
+| `username`     | `string` |
 ----------------------------------------------------------------
 #### add task
 ```http

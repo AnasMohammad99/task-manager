@@ -1,5 +1,5 @@
 import express from "express";
-import { addUser, deleteUser, getUserTasks, getUsers, loginUser, logoutUser, updateUser } from "../controllers/user-controller.js";
+import { addUser, deleteUser, getUserTasks, getUsers, loginUser, logoutUser, resetPassword, updateUser, verifyEmail } from "../controllers/user-controller.js";
 import { createValidator, loginValidator } from "../validators/user-validator.js";
 import passport from "passport";
 
@@ -13,5 +13,8 @@ const router = express.Router();
   router.get('/user-tasks', passport.authenticate('jwt', { session: false }), getUserTasks)
   router.patch('/update-user',passport.authenticate('jwt', { session: false }),updateUser)
   router.delete('/delete-user',passport.authenticate('jwt', { session: false }),deleteUser)
+  //----------------passwordreset-------------------------------
+  router.post("/verify-email",verifyEmail)
+  router.post("/reset-password/:token",resetPassword)
 
 export default router
